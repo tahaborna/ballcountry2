@@ -19,7 +19,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -28,13 +27,13 @@ jobs:
           java-version: 17
 
       - name: Install dependencies
-        run: npm ci
-
-      - name: Sync Capacitor
-        run: npx cap sync android
+        run: npm install
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
+
+      - name: Sync Capacitor
+        run: npx cap sync android
 
       - name: Build APK
         working-directory: android
