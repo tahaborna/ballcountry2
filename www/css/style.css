@@ -1,0 +1,237 @@
+/* کشورهای توپی — استایل اصلی */
+:root{
+  --bg:#0e1626; --bg2:#121d33; --panel:#16233a; --panel2:#1c2c4a;
+  --line:#26385c; --txt:#e8eefb; --dim:#9fb0cf;
+  --gold:#f0b429; --gold2:#c98a12; --green:#2ecc71; --red:#e74c3c;
+  --blue:#3fa7f5; --purple:#a86ff0; --orange:#f39c4f;
+  --r:14px; --shadow:0 8px 24px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+html,body{height:100%; margin:0; overscroll-behavior:none;}
+body{
+  background:var(--bg); color:var(--txt);
+  font-family:'Vazirmatn','Segoe UI',Tahoma,'Noto Naskh Arabic',sans-serif;
+  font-size:15px; user-select:none; -webkit-user-select:none;
+  touch-action:manipulation;
+}
+button{font-family:inherit; cursor:pointer;}
+input,select,textarea{font-family:inherit;}
+#app{height:100dvh; display:flex; flex-direction:column; overflow:hidden;}
+
+/* ---------- دکمه‌ها ---------- */
+.btn{
+  border:none; border-radius:var(--r); padding:11px 16px; font-size:15px; font-weight:700;
+  color:#1a1205; background:linear-gradient(180deg,#ffd970,var(--gold));
+  box-shadow:0 3px 0 var(--gold2), var(--shadow);
+}
+.btn:active{transform:translateY(2px); box-shadow:0 1px 0 var(--gold2);}
+.btn.sec{background:linear-gradient(180deg,#2c4370,#22345a); color:var(--txt); box-shadow:0 3px 0 #182742;}
+.btn.green{background:linear-gradient(180deg,#5ce69a,#27b364); box-shadow:0 3px 0 #1a7f45; color:#03230f;}
+.btn.red{background:linear-gradient(180deg,#ff7a68,#d43a27); box-shadow:0 3px 0 #922818; color:#2b0500;}
+.btn.blue{background:linear-gradient(180deg,#6cc0ff,#2f8fe0); box-shadow:0 3px 0 #1d5f95; color:#04213a;}
+.btn.sm{padding:7px 12px; font-size:13px; border-radius:10px; box-shadow:0 2px 0 var(--gold2);}
+.btn.sm.sec{box-shadow:0 2px 0 #182742;}
+.btn:disabled{filter:grayscale(.8); opacity:.55; pointer-events:none;}
+.btn.wide{width:100%;}
+
+/* ---------- کارت‌ها ---------- */
+.card{background:var(--panel); border:1px solid var(--line); border-radius:var(--r); padding:12px; box-shadow:var(--shadow);}
+.row{display:flex; align-items:center; gap:8px;}
+.spread{display:flex; align-items:center; justify-content:space-between; gap:8px;}
+.muted{color:var(--dim); font-size:12.5px;}
+.chip{background:var(--panel2); border:1px solid var(--line); border-radius:20px; padding:4px 10px; font-size:12.5px; white-space:nowrap;}
+.tag{border-radius:8px; padding:2px 8px; font-size:11.5px; font-weight:700;}
+.tag.friend{background:#123f27; color:#7dedab;}
+.tag.neutral{background:#2b3a55; color:#b9c8e6;}
+.tag.tension{background:#4b3413; color:#ffcf7d;}
+.tag.enemy{background:#471612; color:#ff9c8d;}
+.num{font-weight:800; color:var(--gold);}
+
+/* ---------- صفحه منو ---------- */
+.screen{position:absolute; inset:0; display:flex; flex-direction:column; overflow:hidden; background:var(--bg);}
+#screen-menu{align-items:center; justify-content:center; gap:14px; padding:24px;
+  background:radial-gradient(1200px 600px at 50% -10%, #1d3055 0%, var(--bg) 60%);}
+.logo{font-size:30px; font-weight:900; text-align:center; line-height:1.5;
+  text-shadow:0 4px 18px rgba(240,180,41,.35);}
+.logo small{display:block; font-size:15px; color:var(--gold); font-weight:700;}
+.menu-balls{display:flex; gap:6px; margin-bottom:4px;}
+.menu-col{display:flex; flex-direction:column; gap:10px; width:min(320px,88vw);}
+.ver{position:absolute; bottom:10px; font-size:11px; color:var(--dim);}
+
+/* ---------- انتخاب کشور ---------- */
+.tophead{display:flex; align-items:center; gap:10px; padding:12px 14px; background:var(--bg2); border-bottom:1px solid var(--line);}
+.tophead h2{margin:0; font-size:17px; flex:1;}
+.scroll{flex:1; overflow-y:auto; padding:14px; -webkit-overflow-scrolling:touch;}
+.cgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px;}
+.ccard{position:relative; background:var(--panel); border:1px solid var(--line); border-radius:var(--r); padding:12px 8px; text-align:center;}
+.ccard svg{width:52px; height:52px;}
+.ccard .nm{font-weight:800; margin-top:6px; font-size:13.5px;}
+.ccard .info{font-size:11px; color:var(--dim); margin-top:2px;}
+.ccard.locked{filter:saturate(.15); opacity:.7;}
+.lockbadge{position:absolute; top:6px; left:6px; background:#00000088; border-radius:8px; padding:2px 8px; font-size:11px;}
+.ccard.owned{border-color:var(--gold);}
+.ccard.playable{cursor:pointer;}
+.ccard.playable:active{transform:scale(.97);}
+
+/* ---------- صفحه بازی ---------- */
+#screen-game{display:flex; flex-direction:column;}
+.hud{display:flex; flex-direction:column; gap:6px; padding:8px 10px; background:var(--bg2); border-bottom:1px solid var(--line); z-index:5;}
+.hud-top{display:flex; align-items:center; gap:8px;}
+.hud .ballmini svg{width:34px; height:34px; display:block;}
+.pname{font-weight:800; font-size:14px; line-height:1.3;}
+.lvlbar{width:90px;}
+.bar{height:8px; background:#0b1322; border-radius:6px; overflow:hidden; border:1px solid var(--line);}
+.bar>i{display:block; height:100%; background:linear-gradient(90deg,var(--gold),#ffdf8e); border-radius:6px;}
+.resbar{display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; padding-bottom:2px;}
+.resbar::-webkit-scrollbar{display:none;}
+.res{display:flex; align-items:center; gap:4px; background:var(--panel2); border:1px solid var(--line); border-radius:16px; padding:3px 9px; font-size:12px; white-space:nowrap;}
+.res b{color:var(--txt); font-weight:800;}
+.res .rate{font-size:10px; color:var(--green);}
+.mapwrap{position:relative; flex:1; overflow:hidden; background:#0a1322;}
+#mapsvg{width:100%; height:100%; display:block; touch-action:none; cursor:grab;}
+#mapsvg.drag{cursor:grabbing;}
+
+/* توپ کشورها */
+.ball{cursor:pointer;}
+.ball text{pointer-events:none;}
+.ball .lbl{font-size:12px; fill:#dfe8f5; paint-order:stroke; stroke:#0a1322; stroke-width:3px; font-weight:700;}
+.ball .cap{font-size:11px; fill:var(--gold);}
+.ball.sel .ring{opacity:1;}
+.ring{opacity:0; transition:opacity .15s;}
+.ball.mine .ring{opacity:1; stroke:var(--gold);}
+.ball.war .brow{opacity:1;}
+.brow{opacity:0;}
+.ball.shake{animation:shake .4s infinite;}
+@keyframes shake{0%,100%{transform:translate(0,0)}25%{transform:translate(-2px,1px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-1px,-2px)}}
+.ball.dead{filter:grayscale(1); opacity:.55;}
+
+/* نوار پایین */
+.nav{display:flex; gap:8px; padding:10px 10px calc(10px + env(safe-area-inset-bottom)); background:var(--bg2); border-top:1px solid var(--line); overflow-x:auto; scrollbar-width:none;}
+.nav::-webkit-scrollbar{display:none;}
+.navbtn{flex:0 0 auto; display:flex; flex-direction:column; align-items:center; gap:3px; background:var(--panel);
+  border:1px solid var(--line); color:var(--txt); border-radius:12px; padding:7px 12px; font-size:11px; font-weight:700; min-width:64px;}
+.navbtn .ic{font-size:19px;}
+.navbtn .dot{position:absolute; margin-top:-34px; margin-right:34px; width:9px; height:9px; border-radius:50%; background:var(--red); box-shadow:0 0 6px var(--red);}
+.navbtn{position:relative;}
+.navbtn:active{transform:scale(.94);}
+
+/* ویرایشگر */
+.editorbar{position:absolute; top:8px; right:8px; left:8px; z-index:6; display:flex; gap:8px; align-items:center; background:#0e1626ee; border:1px solid var(--line); border-radius:12px; padding:8px;}
+.editorbar .hint{font-size:11px; color:var(--dim); flex:1;}
+
+/* ---------- مودال‌ها ---------- */
+.overlay{position:fixed; inset:0; background:#050a14cc; z-index:50; display:flex; align-items:flex-end; justify-content:center; animation:fade .18s;}
+.overlay.center{align-items:center; padding:18px;}
+.sheet{width:min(560px,100%); max-height:88dvh; background:var(--bg2); border:1px solid var(--line); border-radius:20px 20px 0 0;
+  display:flex; flex-direction:column; animation:up .22s; overflow:hidden;}
+.overlay.center .sheet{border-radius:20px; max-height:86dvh;}
+@keyframes up{from{transform:translateY(40px); opacity:.4}}
+@keyframes fade{from{opacity:0}}
+.sheethead{display:flex; align-items:center; gap:10px; padding:13px 16px; border-bottom:1px solid var(--line); background:var(--panel);}
+.sheethead h3{margin:0; font-size:16px; flex:1;}
+.xbtn{background:none; border:1px solid var(--line); color:var(--txt); border-radius:10px; width:32px; height:32px; font-size:15px;}
+.sheetbody{flex:1; overflow-y:auto; padding:14px; -webkit-overflow-scrolling:touch;}
+.tabs{display:flex; gap:6px; padding:10px 14px 0; flex-wrap:wrap;}
+.tab{border:1px solid var(--line); background:var(--panel); color:var(--dim); border-radius:20px; padding:6px 14px; font-size:12.5px; font-weight:700;}
+.tab.on{background:var(--gold); color:#1a1205; border-color:var(--gold);}
+
+/* دیپلماسی */
+.drow{display:flex; align-items:center; gap:10px; background:var(--panel); border:1px solid var(--line); border-radius:var(--r); padding:10px; margin-bottom:8px;}
+.drow svg{width:38px; height:38px; flex:0 0 auto;}
+.drow .mid{flex:1; min-width:0;}
+.drow .nm{font-weight:800; font-size:13.5px;}
+.drow .acts{display:flex; gap:6px; flex-wrap:wrap; margin-top:7px;}
+
+/* صندوق‌ها */
+.chestgrid{display:grid; grid-template-columns:repeat(5,1fr); gap:10px;}
+.chest{aspect-ratio:1/1.15; background:linear-gradient(180deg,#24365c,#1a2745); border:1px solid var(--line); border-radius:12px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; font-size:11px; padding:6px; position:relative;}
+.chest .em{font-size:30px;}
+.chest.opened{filter:grayscale(.7) brightness(.75);}
+.chest.special{border-color:var(--gold); box-shadow:0 0 14px #f0b42955;}
+.chest:active{transform:scale(.95);}
+.chest .tn{font-weight:700; text-align:center;}
+.lootcard{background:linear-gradient(180deg,#2a3f6b,#1a2745); border:1px solid var(--gold); border-radius:14px; padding:18px; text-align:center; animation:pop .3s;}
+@keyframes pop{0%{transform:scale(.6); opacity:0}80%{transform:scale(1.06)}100%{transform:scale(1)}}
+.lootcard .em{font-size:44px;}
+.lootcard .big{font-size:19px; font-weight:900; color:var(--gold); margin:6px 0 2px;}
+
+/* پاداش روزانه */
+.dgrid{display:grid; grid-template-columns:repeat(6,1fr); gap:7px;}
+.dday{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:8px 4px; text-align:center; font-size:10.5px; position:relative;}
+.dday .d{font-weight:900; font-size:12px;}
+.dday .r{color:var(--dim);}
+.dday.today{border-color:var(--gold); background:#332713;}
+.dday.done{opacity:.55;}
+.dday.done::after{content:'✓'; position:absolute; top:2px; left:5px; color:var(--green); font-weight:900;}
+
+/* نبرد */
+.battlestage{display:flex; align-items:center; justify-content:space-around; padding:18px 6px; background:linear-gradient(180deg,#17233d,#101a2e); border-radius:14px; border:1px solid var(--line);}
+.bfighter{display:flex; flex-direction:column; align-items:center; gap:8px; width:110px;}
+.bfighter svg{width:64px; height:64px;}
+.bfighter .nm{font-weight:800; font-size:13px;}
+.pbar{width:100%;}
+.vs{font-size:22px; font-weight:900; color:var(--gold);}
+.combatlog{background:#0b1322; border:1px solid var(--line); border-radius:10px; padding:10px; font-size:12.5px; max-height:140px; overflow-y:auto; margin-top:10px; line-height:2;}
+
+/* مأموریت‌ها */
+.mrow{display:flex; align-items:center; gap:10px; background:var(--panel); border:1px solid var(--line); border-radius:var(--r); padding:11px; margin-bottom:8px;}
+.mrow.done{opacity:.6;}
+.mrow .ic{font-size:22px;}
+.mrow .mid{flex:1;}
+.mrow .tt{font-weight:800; font-size:13.5px;}
+.mrow .rr{font-size:11.5px; color:var(--gold); margin-top:2px;}
+
+/* فروشگاه */
+.sgrid{display:grid; grid-template-columns:repeat(2,1fr); gap:10px;}
+.scard{background:var(--panel); border:1px solid var(--line); border-radius:var(--r); padding:12px; text-align:center;}
+.scard svg{width:56px; height:56px;}
+.scard .nm{font-weight:800; font-size:13px; margin:4px 0;}
+.scard.eq{border-color:var(--green);}
+
+/* تنظیمات */
+.setrow{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 4px; border-bottom:1px solid var(--line);}
+textarea.savebox{width:100%; height:90px; background:#0b1322; color:var(--txt); border:1px solid var(--line); border-radius:10px; padding:8px; font-size:11px; direction:ltr; text-align:left;}
+
+/* توست */
+#toast-root{position:fixed; top:calc(10px + env(safe-area-inset-top)); left:0; right:0; display:flex; flex-direction:column; align-items:center; gap:6px; z-index:99; pointer-events:none;}
+.toast{background:#1d2b49f2; border:1px solid var(--line); color:var(--txt); border-radius:14px; padding:10px 18px; font-size:13.5px; font-weight:700; box-shadow:var(--shadow); animation:up .2s; max-width:88vw; text-align:center;}
+.toast.good{border-color:var(--green);}
+.toast.bad{border-color:var(--red);}
+.toast.gold{border-color:var(--gold);}
+
+/* شهرها */
+.cityrow{background:var(--panel); border:1px solid var(--line); border-radius:var(--r); padding:11px; margin-bottom:9px;}
+.bslot{display:flex; align-items:center; gap:8px; background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:7px 9px; margin-top:6px; font-size:12.5px;}
+.bslot .bi{font-size:17px;}
+.bslot .bn{flex:1; font-weight:700;}
+.bslot .bl{color:var(--gold); font-weight:800;}
+
+/* آموزش */
+.tut{position:fixed; inset:0; z-index:80; background:#050a14e6; display:flex; align-items:center; justify-content:center; padding:22px;}
+.tutcard{background:var(--bg2); border:1px solid var(--gold); border-radius:18px; padding:22px; max-width:340px; text-align:center;}
+.tutcard .em{font-size:40px;}
+.tutcard h3{margin:8px 0 6px;}
+.tutcard p{color:var(--dim); font-size:13.5px; line-height:1.9; margin:0 0 14px;}
+.tutdots{display:flex; gap:5px; justify-content:center; margin-bottom:12px;}
+.tutdots i{width:7px; height:7px; border-radius:50%; background:var(--line);}
+.tutdots i.on{background:var(--gold);}
+
+.inp{background:#0b1322; border:1px solid var(--line); border-radius:8px; color:var(--txt); padding:6px 10px; width:180px; direction:ltr; text-align:left;}
+.hintline{font-size:11.5px; color:var(--dim); margin:8px 0; line-height:1.8;}
+.centerbox{text-align:center; padding:30px 14px;}
+.bigicon{font-size:44px;}
+
+/* نبرد تاکتیکی نوبتی */
+.optgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:8px;}
+.optcard{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:10px 6px; text-align:center; font-size:11px; cursor:pointer; display:flex; flex-direction:column; gap:3px; align-items:center;}
+.optcard .ic{font-size:20px;}
+.optcard b{font-size:12px;}
+.optcard.on{border-color:var(--gold); background:#332713; box-shadow:0 0 10px #f0b42933;}
+.optcard:active{transform:scale(.96);}
+.optcard.lock{opacity:.45; filter:grayscale(.7);}
+.crow{display:flex; align-items:center; gap:8px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:8px 10px; margin-bottom:7px; cursor:pointer; font-size:12.5px;}
+.crow.on{border-color:var(--gold); background:#332713;}
+.crow.lock{opacity:.5;}
+.crow .ci{font-size:20px;}
+.bfighter.hit svg{animation:shake .3s 2;}

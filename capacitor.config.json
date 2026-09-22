@@ -1,0 +1,19 @@
+{
+  "appId": "ir.ballcountries.game",
+  "appName": "کشورهای توپی",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "backgroundColor": "#0e1626"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1200,
+      "backgroundColor": "#0e1626",
+      "showSpinner": false
+    }
+  }
+}

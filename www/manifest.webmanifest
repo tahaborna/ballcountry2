@@ -1,0 +1,53 @@
+{
+  "id": "/",
+  "name": "کشورهای توپی: فرمانروایی جهان",
+  "short_name": "کشورهای توپی",
+  "description": "بازی استراتژیک و مدیریتی موبایلی با کشورهای توپی و پرچم واقعی",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "fullscreen", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#0e1626",
+  "theme_color": "#0e1626",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-192-maskable.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "نقشه جهان",
+      "short_name": "نقشه",
+      "url": "./#/map",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "صندوق‌ها",
+      "short_name": "صندوق‌ها",
+      "url": "./#/chests",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "پاداش روزانه",
+      "short_name": "پاداش",
+      "url": "./#/daily",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "رویداد فصل",
+      "short_name": "فصل",
+      "url": "./#/season",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "دیپلماسی",
+      "short_name": "دیپلماسی",
+      "url": "./#/diplo",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
